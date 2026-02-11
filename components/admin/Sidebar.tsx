@@ -10,6 +10,7 @@ import {
   BarChart3,
   Search,
   Settings,
+  Blocks,
   ArrowLeft,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -21,6 +22,7 @@ const NAV_ITEMS = [
   { href: "/admin/ai", label: "AI Writer", icon: Sparkles },
   { href: "/admin/analytics", label: "Analytics", icon: BarChart3 },
   { href: "/admin/sxo", label: "SXO", icon: Search },
+  { href: "/admin/apps", label: "Apps", icon: Blocks },
   { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 

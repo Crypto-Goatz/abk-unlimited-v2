@@ -13,9 +13,15 @@ export interface DriveFile {
 }
 
 export function getPublicUrl(fileId: string): string {
+  if (fileId.startsWith("http://") || fileId.startsWith("https://")) {
+    return fileId;
+  }
   return `https://drive.google.com/uc?export=view&id=${fileId}`;
 }
 
 export function getThumbnailUrl(fileId: string, size: number = 400): string {
+  if (fileId.startsWith("http://") || fileId.startsWith("https://")) {
+    return fileId;
+  }
   return `https://drive.google.com/thumbnail?id=${fileId}&sz=w${size}`;
 }

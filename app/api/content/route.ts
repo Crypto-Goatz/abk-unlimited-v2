@@ -19,6 +19,7 @@ const VALID_SHEETS: SheetName[] = [
   "faqs",
   "seo",
   "site_config",
+  "custom_apps",
 ];
 
 /**

@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
+import { getPublicUrl } from "@/lib/drive-utils";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -17,17 +19,29 @@ const NAV_LINKS = [
 interface HeaderProps {
   siteName: string;
   phone?: string;
+  logoImageId?: string;
 }
 
-export function Header({ siteName, phone }: HeaderProps) {
+export function Header({ siteName, phone, logoImageId }: HeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold text-gray-900">
-            {siteName}
+          <Link href="/" className="flex items-center gap-2 text-xl font-bold text-gray-900">
+            {logoImageId ? (
+              <Image
+                src={getPublicUrl(logoImageId)}
+                alt={siteName}
+                width={140}
+                height={40}
+                className="h-10 w-auto object-contain"
+                unoptimized
+              />
+            ) : (
+              siteName
+            )}
           </Link>
 
           {/* Desktop nav */}

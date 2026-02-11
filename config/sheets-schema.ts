@@ -61,6 +61,18 @@ export const SHEETS_SCHEMA = {
     description: "Per-page SEO metadata overrides",
     columns: ["page_path", "title", "description", "og_image_id"],
   },
+  custom_apps: {
+    description: "Custom app/tool definitions rendered dynamically",
+    columns: [
+      "id",
+      "title",
+      "slug",
+      "status",
+      "definition",
+      "created_at",
+      "updated_at",
+    ],
+  },
 } as const;
 
 export type SheetName = keyof typeof SHEETS_SCHEMA;
@@ -124,4 +136,14 @@ export interface SEORow {
   title: string;
   description: string;
   og_image_id: string;
+}
+
+export interface CustomAppRow {
+  id: string;
+  title: string;
+  slug: string;
+  status: string;
+  definition: string;
+  created_at: string;
+  updated_at: string;
 }

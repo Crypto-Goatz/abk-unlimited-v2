@@ -1,7 +1,7 @@
 import { getIntegrationStatus } from "@/lib/config";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { CheckCircle2, XCircle, FileText, Image, Bot, BarChart3, Settings, Activity } from "lucide-react";
+import { CheckCircle2, XCircle, FileText, Image, Bot, BarChart3, Settings, Activity, Blocks } from "lucide-react";
 
 export default function AdminDashboardPage() {
   const status = getIntegrationStatus();
@@ -20,6 +20,7 @@ export default function AdminDashboardPage() {
     { href: "/admin/ai", label: "AI Writer", icon: Bot, description: "Generate content with AI" },
     { href: "/admin/analytics", label: "Analytics", icon: BarChart3, description: "View site performance" },
     { href: "/admin/sxo", label: "SXO Panel", icon: Activity, description: "Behavioral data and search experience" },
+    { href: "/admin/apps", label: "Custom Apps", icon: Blocks, description: "Build and manage dynamic tools" },
     { href: "/admin/settings", label: "Settings", icon: Settings, description: "Configure integrations" },
   ];
 

@@ -1,5 +1,10 @@
 import { google } from "googleapis";
 
+const SCOPES = [
+  "https://www.googleapis.com/auth/spreadsheets",
+  "https://www.googleapis.com/auth/drive",
+];
+
 let cachedAuth: InstanceType<typeof google.auth.GoogleAuth> | null = null;
 
 export function getGoogleAuth() {
@@ -16,13 +21,21 @@ export function getGoogleAuth() {
 
   cachedAuth = new google.auth.GoogleAuth({
     credentials,
-    scopes: [
-      "https://www.googleapis.com/auth/spreadsheets",
-      "https://www.googleapis.com/auth/drive",
-    ],
+    scopes: SCOPES,
   });
 
   return cachedAuth;
+}
+
+/**
+ * Create a GoogleAuth instance from credentials directly.
+ * Used during setup before env vars exist.
+ */
+export function getAuthFromCredentials(credentials: object) {
+  return new google.auth.GoogleAuth({
+    credentials,
+    scopes: SCOPES,
+  });
 }
 
 export function getSheetsClient() {
@@ -31,4 +44,12 @@ export function getSheetsClient() {
 
 export function getDriveClient() {
   return google.drive({ version: "v3", auth: getGoogleAuth() });
+}
+
+export function getSheetsClientWithAuth(auth: InstanceType<typeof google.auth.GoogleAuth>) {
+  return google.sheets({ version: "v4", auth });
+}
+
+export function getDriveClientWithAuth(auth: InstanceType<typeof google.auth.GoogleAuth>) {
+  return google.drive({ version: "v3", auth });
 }
