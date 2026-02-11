@@ -14,8 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_SITE_NAME || "Rocket Client Site",
-  description: `Professional services by ${process.env.NEXT_PUBLIC_SITE_NAME || "our team"}. Quality work, fair prices, satisfaction guaranteed.`,
+  title: process.env.NEXT_PUBLIC_SITE_NAME
+    ? `${process.env.NEXT_PUBLIC_SITE_NAME} | ${process.env.NEXT_PUBLIC_SITE_TAGLINE || "Professional Services"}`
+    : "ABK Unlimited | Pittsburgh's Trusted General Contractor",
+  description:
+    process.env.NEXT_PUBLIC_SITE_NAME
+      ? `Professional services by ${process.env.NEXT_PUBLIC_SITE_NAME}. Quality work, fair prices, satisfaction guaranteed.`
+      : "Award-winning Pittsburgh general contractor specializing in kitchen remodeling, bathroom renovations, basement finishing & deck building. Licensed & insured. Free estimates. Call (412) 944-1683.",
 };
 
 export default function RootLayout({
