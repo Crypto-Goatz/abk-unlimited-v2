@@ -116,8 +116,21 @@ function SaveInspirationModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: email.split("@")[0],
+          email,
+          source: "Design Gallery",
+          service: "Design Inspiration",
+          message: `Saved inspiration: ${itemTitle}`,
+        }),
+      })
+    } catch {
+      // Still show success to the user
+    }
     setIsSubmitting(false)
     setIsSuccess(true)
     setTimeout(() => {

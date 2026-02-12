@@ -13,6 +13,58 @@ import { LeadIntelligence } from '@/lib/skills/lead-intelligence'
 import type { IncomingLead } from '@/lib/skills/lead-intelligence'
 
 // ============================================================================
+// INBOUND WEBHOOK — fires on every lead submission
+// ============================================================================
+
+const INBOUND_WEBHOOK_URL =
+  'https://services.leadconnectorhq.com/hooks/497AdD39erWgmOu8JTCw/webhook-trigger/7eefc3ac-ca9c-4448-87da-b3d518f0ac15'
+
+async function fireWebhook(lead: IncomingLead) {
+  try {
+    const [firstName, ...rest] = (lead.name || '').split(' ')
+    const lastName = rest.join(' ')
+
+    await fetch(INBOUND_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        // Contact fields (CRM-standard naming)
+        firstName,
+        lastName,
+        name: lead.name,
+        email: lead.email,
+        phone: lead.phone || '',
+        address1: lead.address || '',
+        city: lead.city || '',
+        state: lead.state || '',
+        postalCode: lead.zipCode || '',
+
+        // Project details
+        source: lead.source || 'Website',
+        service: lead.service || '',
+        services: lead.services?.join(', ') || '',
+        message: lead.message || '',
+        projectTimeline: lead.projectTimeline || '',
+        budget: lead.budget || '',
+
+        // UTM tracking
+        utmSource: lead.utmSource || '',
+        utmMedium: lead.utmMedium || '',
+        utmCampaign: lead.utmCampaign || '',
+        landingPage: lead.landingPage || '',
+
+        // Metadata
+        submittedAt: new Date().toISOString(),
+        website: 'abkunlimited.com',
+      }),
+    })
+  } catch (error) {
+    // Non-blocking — log but don't fail the lead submission
+    console.error('Webhook delivery failed:', error)
+  }
+}
+
+// ============================================================================
 // VALIDATION SCHEMA
 // ============================================================================
 
@@ -77,8 +129,11 @@ export async function POST(request: NextRequest) {
       utmCampaign: validatedData.utmCampaign,
     }
 
-    // Process with Lead Intelligence Skill
-    const result = await LeadIntelligence.process(lead)
+    // Fire webhook + process lead intelligence in parallel
+    const [result] = await Promise.all([
+      LeadIntelligence.process(lead),
+      fireWebhook(lead),
+    ])
 
     // Log the result
     console.log('Lead Intelligence Result:', {
