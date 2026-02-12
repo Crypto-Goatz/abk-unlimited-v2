@@ -94,6 +94,53 @@ export async function appendSheetRow(
 }
 
 /**
+ * Upsert a key-value pair in the site_config sheet.
+ * If the key already exists, update its value. Otherwise, append a new row.
+ */
+export async function upsertSiteConfigKey(
+  key: string,
+  value: string
+): Promise<void> {
+  if (!SPREADSHEET_ID || !process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+    throw new Error("Google Sheets is not configured. Set GOOGLE_SERVICE_ACCOUNT_KEY and GOOGLE_SHEETS_ID.");
+  }
+
+  const sheets = getSheetsClient();
+  const res = await sheets.spreadsheets.values.get({
+    spreadsheetId: SPREADSHEET_ID,
+    range: "site_config!A:B",
+  });
+
+  const rows = res.data.values || [];
+  // Find the row index where column A matches the key (skip header row 0)
+  let rowIndex = -1;
+  for (let i = 1; i < rows.length; i++) {
+    if (rows[i][0] === key) {
+      rowIndex = i;
+      break;
+    }
+  }
+
+  if (rowIndex >= 0) {
+    // Update existing row (1-indexed in Sheets API: row 1 = header, data starts row 2)
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: SPREADSHEET_ID,
+      range: `site_config!A${rowIndex + 1}:B${rowIndex + 1}`,
+      valueInputOption: "RAW",
+      requestBody: { values: [[key, value]] },
+    });
+  } else {
+    // Append new row
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: SPREADSHEET_ID,
+      range: "site_config!A:B",
+      valueInputOption: "RAW",
+      requestBody: { values: [[key, value]] },
+    });
+  }
+}
+
+/**
  * Delete a row from a sheet by clearing it.
  * Note: Google Sheets API doesn't support row deletion via values API,
  * so we clear the row and it can be cleaned up later.

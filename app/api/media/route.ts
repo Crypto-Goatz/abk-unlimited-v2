@@ -1,11 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 import { listFiles, uploadFile, deleteFile } from "@/lib/google/drive";
 
+function checkDriveConfig() {
+  if (!process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+    return "Google Drive is not configured. Add GOOGLE_SERVICE_ACCOUNT_KEY in Vercel environment variables.";
+  }
+  if (!process.env.GOOGLE_DRIVE_FOLDER_ID) {
+    return "Google Drive folder is not configured. Add GOOGLE_DRIVE_FOLDER_ID in Vercel environment variables.";
+  }
+  return null;
+}
+
 /**
  * GET /api/media?subfolder=portfolio
  * List images from a Drive subfolder
  */
 export async function GET(req: NextRequest) {
+  const configError = checkDriveConfig();
+  if (configError) {
+    return NextResponse.json({ error: configError }, { status: 503 });
+  }
+
   const subfolder = req.nextUrl.searchParams.get("subfolder") || undefined;
 
   try {
@@ -22,6 +37,11 @@ export async function GET(req: NextRequest) {
  * Upload an image to Drive (FormData with "file" and optional "subfolder")
  */
 export async function POST(req: NextRequest) {
+  const configError = checkDriveConfig();
+  if (configError) {
+    return NextResponse.json({ error: configError }, { status: 503 });
+  }
+
   try {
     const formData = await req.formData();
     const file = formData.get("file") as File | null;

@@ -4,6 +4,7 @@ import {
   updateSheetRow,
   appendSheetRow,
   deleteSheetRow,
+  upsertSiteConfigKey,
 } from "@/lib/google/sheets";
 import { createContact } from "@/lib/crm";
 import { trackConversion } from "@/lib/cro9";
@@ -94,7 +95,12 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    await appendSheetRow(sheet, data);
+    // For site_config, upsert by key instead of blindly appending
+    if (sheet === "site_config" && data.key) {
+      await upsertSiteConfigKey(data.key, data.value || "");
+    } else {
+      await appendSheetRow(sheet, data);
+    }
     return NextResponse.json({ success: true });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unknown error";
