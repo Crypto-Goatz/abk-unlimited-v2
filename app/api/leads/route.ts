@@ -13,6 +13,7 @@ import { LeadIntelligence } from '@/lib/skills/lead-intelligence'
 import type { IncomingLead } from '@/lib/skills/lead-intelligence'
 import { appendSheetRow } from '@/lib/google/sheets'
 import { recordAnalyticsEvent } from '@/lib/analytics-loop'
+import { startSequence } from '@/lib/email-sequence'
 
 // ============================================================================
 // INBOUND WEBHOOK — fires on every lead submission
@@ -215,6 +216,18 @@ export async function POST(request: NextRequest) {
       pagePath: attr.conversion_page || '/free-estimate',
       conversionValue: validatedData.budget ? 1000 : 500,
     }).catch(() => {})
+
+    // Start automated email thank-you sequence (non-blocking)
+    startSequence({
+      firstName,
+      lastName: restName.join(' ') || undefined,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      service: validatedData.service,
+      source: validatedData.source || 'free-estimate',
+      crmContactId: result.lead.crmContactId,
+      customerId,
+    }).catch((err) => console.error('Sequence start error:', err))
 
     // Return appropriate response based on temperature
     const messages = {

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { createCustomer } from '@/lib/crm-sync'
 import { recordAnalyticsEvent } from '@/lib/analytics-loop'
+import { startSequence } from '@/lib/email-sequence'
 
 // Validation schema for contact form — now includes attribution fields
 const contactSchema = z.object({
@@ -99,6 +100,18 @@ export async function POST(request: NextRequest) {
       pagePath: data.conversion_page || data.page_source || '/contact',
       conversionValue: servicesInterested.length > 0 ? 500 : 100, // Estimated lead value
     }).catch(() => {})
+
+    // Start automated email thank-you sequence (non-blocking)
+    startSequence({
+      firstName,
+      lastName,
+      email: data.email,
+      phone: data.phone,
+      service: data.subject,
+      source: 'contact',
+      crmContactId: result.crmContactId,
+      customerId: result.customerId,
+    }).catch((err) => console.error('Sequence start error:', err))
 
     return NextResponse.json({
       success: true,
