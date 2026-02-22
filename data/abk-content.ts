@@ -13,7 +13,7 @@ export const LOCAL_DATA: Record<string, Record<string, string>[]> = {
     { key: "email", value: "abk.unlimited@gmail.com" },
     { key: "address", value: "138 Balver Ave, Pittsburgh, PA 15205" },
     { key: "website", value: "https://abkunlimited.com" },
-    { key: "founded_year", value: "2005" },
+    { key: "founded_year", value: "2020" },
     { key: "license_number", value: "PA163301" },
     { key: "gc_license", value: "GC-2021-002697" },
     { key: "primary_color", value: "#14664f" },
@@ -28,9 +28,9 @@ export const LOCAL_DATA: Record<string, Record<string, string>[]> = {
     { key: "service_area", value: "Greater Pittsburgh, Allegheny County & Surrounding Areas" },
     { key: "price_range", value: "$10,000 - $500,000" },
     { key: "rating", value: "5.0" },
-    { key: "review_count", value: "200+" },
-    { key: "projects_completed", value: "1200+" },
-    { key: "years_experience", value: "18+" },
+    { key: "review_count", value: "9+" },
+    { key: "projects_completed", value: "" },
+    { key: "years_experience", value: "5+" },
   ],
 
   services: [
@@ -64,7 +64,7 @@ export const LOCAL_DATA: Record<string, Record<string, string>[]> = {
     },
     {
       id: "svc-roofing", title: "Roofing", slug: "roofing",
-      description: "Trusted by Pittsburgh homeowners since 2009. Expert roof replacement, repair, and installation with premium materials and industry-leading warranties.",
+      description: "Expert roof replacement, repair, and installation with premium materials and industry-leading warranties. Trusted by Pittsburgh homeowners.",
       image_id: "", icon: "Home", order: "5",
       features: "Roof Replacement|Roof Repair|Metal Roofing|Flat Roofing|Gutter Installation|Skylight Installation|Emergency Repairs|Insurance Claims",
       price_range: "$8,000 - $50,000+",
@@ -115,7 +115,7 @@ export const LOCAL_DATA: Record<string, Record<string, string>[]> = {
     { id: "test-1", name: "Jennifer M.", role: "Homeowner, Mt. Lebanon", text: "ABK Unlimited transformed our outdated 1950s kitchen into a modern showpiece. The team was professional, on schedule, and the attention to detail was incredible. We couldn't be happier with the result!", rating: "5", image_id: "", project_type: "Kitchen Remodel" },
     { id: "test-2", name: "David & Sarah K.", role: "Homeowners, Moon Township", text: "After getting burned by another contractor, we were hesitant to start our basement project. ABK was completely different \u2014 transparent pricing, regular updates, and the finished result exceeded our expectations.", rating: "5", image_id: "", project_type: "Basement Finishing" },
     { id: "test-3", name: "Michael R.", role: "Homeowner, Sewickley", text: "Our deck was falling apart and we needed it replaced before summer. ABK designed a beautiful multi-level Trex deck with a built-in pergola. It was done on time and on budget. Their craftsmanship is top-notch.", rating: "5", image_id: "", project_type: "Deck Building" },
-    { id: "test-4", name: "Michael & Sarah Thompson", role: "Homeowners, Mt. Lebanon, PA", text: "ABK Unlimited transformed our dated kitchen into a stunning modern space. Anthony and his team were professional, clean, and finished on time. The attention to detail was incredible \u2014 from the custom cabinetry to the backsplash installation. Highly recommend!", rating: "5", image_id: "", project_type: "Kitchen Remodel" },
+    { id: "test-4", name: "Michael & Sarah Thompson", role: "Homeowners, Mt. Lebanon, PA", text: "ABK Unlimited transformed our dated kitchen into a stunning modern space. The team was professional, clean, and finished on time. The attention to detail was incredible \u2014 from the custom cabinetry to the backsplash installation. Highly recommend!", rating: "5", image_id: "", project_type: "Kitchen Remodel" },
     { id: "test-5", name: "Jennifer Martinez", role: "Homeowner, Sewickley, PA", text: "We hired ABK for a complete home renovation and couldn't be happier. They handled everything from design to final walkthrough. Communication was excellent throughout the 4-month project. Our house feels brand new!", rating: "5", image_id: "", project_type: "Full Home Renovation" },
     { id: "test-6", name: "Robert & Linda Chen", role: "Homeowners, Cranberry Township, PA", text: "ABK turned our unfinished basement into an amazing entertainment space with a wet bar and home theater. The craftsmanship is top-notch. They stayed within budget and even suggested cost-saving alternatives without sacrificing quality.", rating: "5", image_id: "", project_type: "Basement Finishing" },
     { id: "test-7", name: "David Patterson", role: "Homeowner, Moon Township, PA", text: "Our new composite deck is beautiful! ABK handled all permits and built a custom design that perfectly complements our home. The outdoor living space has completely changed how we use our backyard.", rating: "5", image_id: "", project_type: "Deck Construction" },
@@ -128,44 +128,44 @@ export const LOCAL_DATA: Record<string, Record<string, string>[]> = {
       id: "blog-1", title: "Top Kitchen Remodel Trends for 2025", slug: "kitchen-remodel-trends-2025",
       content: "The kitchen continues to be the heart of the home, and 2025 brings exciting new trends. From bold color choices to smart appliance integration, here's what's trending in Pittsburgh kitchen remodeling.\n\n## 1. Two-Tone Cabinetry\nMixing cabinet colors adds depth and visual interest. The most popular combination? Navy blue lower cabinets with white uppers.\n\n## 2. Quartz Countertops Dominate\nQuartz continues to outpace granite for its durability, low maintenance, and design versatility.\n\n## 3. Smart Kitchen Integration\nWi-Fi-enabled appliances, touchless faucets, and under-cabinet charging stations are now standard in high-end remodels.\n\n## 4. Open Shelving Accents\nWhile full open shelving is declining, accent sections of open shelving mixed with traditional cabinets creates a curated look.\n\n## 5. Oversized Islands\nKitchen islands continue to grow, serving as dining, prep, and social hub all in one.\n\nReady to bring these trends to your Pittsburgh kitchen? Contact ABK Unlimited for a free design consultation.",
       excerpt: "The kitchen continues to be the heart of the home, and 2025 brings exciting new trends. From bold color choices to smart appliance integration, here's what's trending.",
-      image_id: "", published_at: "2025-01-05", status: "published", author: "Anthony Kowalski", category: "Kitchen", read_time: "6 min",
+      image_id: "", published_at: "2025-01-05", status: "published", author: "ABK Unlimited Team", category: "Kitchen", read_time: "6 min",
     },
     {
       id: "blog-2", title: "Bathroom Renovation ROI: What to Expect", slug: "bathroom-renovation-roi",
       content: "Thinking about a bathroom remodel? Here's what you need to know about return on investment for different types of bathroom renovations in the Pittsburgh market.\n\n## Average ROI by Project Type\n\n### Minor Bathroom Remodel (60-70% ROI)\n- Updated fixtures and hardware\n- New vanity and mirror\n- Fresh paint and lighting\n- Budget: $8,000-$15,000\n\n### Mid-Range Bathroom Remodel (55-65% ROI)\n- New tile floors and shower surround\n- Updated plumbing fixtures\n- New vanity with stone countertop\n- Budget: $15,000-$35,000\n\n### Upscale Master Bathroom (50-60% ROI)\n- Walk-in shower with frameless glass\n- Freestanding soaking tub\n- Heated floors\n- Custom cabinetry\n- Budget: $35,000-$75,000\n\n## Tips to Maximize ROI\n1. Don't over-improve for your neighborhood\n2. Stick to neutral, timeless finishes\n3. Focus on quality fixtures that last\n4. Ensure proper waterproofing\n\nContact ABK Unlimited to discuss your bathroom renovation and get a free estimate.",
       excerpt: "Thinking about a bathroom remodel? Here's what you need to know about return on investment for different types of bathroom renovations in the Pittsburgh market.",
-      image_id: "", published_at: "2024-12-28", status: "published", author: "Maria Kowalski", category: "Bathroom", read_time: "5 min",
+      image_id: "", published_at: "2024-12-28", status: "published", author: "ABK Unlimited Team", category: "Bathroom", read_time: "5 min",
     },
     {
       id: "blog-3", title: "Complete Guide to Finishing Your Basement", slug: "basement-finishing-guide",
       content: "Your basement represents untapped potential. Here's everything Pittsburgh homeowners need to know about transforming that unfinished space into valuable living area.\n\n## Before You Start\n\n### Address Moisture First\nPittsburgh's climate means moisture control is critical. Before any finishing work:\n- Check for water intrusion after heavy rains\n- Consider interior/exterior waterproofing\n- Install a quality sump pump system\n- Use vapor barriers on walls and floors\n\n### Check Building Codes\nAllegheny County requires:\n- Minimum 7-foot ceiling height\n- Egress windows in bedrooms\n- Smoke and carbon monoxide detectors\n- Proper electrical and plumbing permits\n\n## Popular Basement Layouts\n\n### Entertainment Hub\nHome theater, gaming area, and wet bar. Budget: $40,000-$80,000\n\n### Guest Suite\nBedroom, bathroom, and sitting area. Budget: $35,000-$60,000\n\n### Home Office\nDedicated workspace away from household distractions. Budget: $15,000-$30,000\n\n## Timeline\nMost basement finishing projects take 6-10 weeks from start to finish.\n\nReady to unlock your basement's potential? ABK Unlimited offers free in-home consultations.",
       excerpt: "Your basement represents untapped potential. Here's everything Pittsburgh homeowners need to know about transforming that unfinished space into valuable living area.",
-      image_id: "", published_at: "2024-12-15", status: "published", author: "James Mitchell", category: "Basement", read_time: "8 min",
+      image_id: "", published_at: "2024-12-15", status: "published", author: "ABK Unlimited Team", category: "Basement", read_time: "8 min",
     },
     {
       id: "blog-4", title: "Composite vs Wood Decking: Which Is Right for You?", slug: "deck-material-comparison",
       content: "Choosing between composite and wood decking? Both have pros and cons for Pittsburgh's four-season climate. Here's a detailed comparison to help you decide.\n\n## Composite Decking\n\n### Pros\n- Minimal maintenance (no staining/sealing)\n- Won't rot, warp, or splinter\n- 25-year+ warranties\n- Consistent appearance over time\n- Eco-friendly (made from recycled materials)\n\n### Cons\n- Higher upfront cost ($45-85/sq ft installed)\n- Can get hot in direct sun\n- Limited ability to refinish\n\n## Pressure-Treated Wood\n\n### Pros\n- Lower upfront cost ($25-40/sq ft installed)\n- Natural wood appearance\n- Can be stained any color\n- Easy to repair individual boards\n\n### Cons\n- Requires annual maintenance\n- Will crack, warp, and splinter over time\n- Shorter lifespan (10-15 years)\n\n## Our Recommendation\nFor most Pittsburgh homeowners, composite decking is the better long-term investment. The higher upfront cost is offset by virtually zero maintenance over 25+ years.\n\nContact ABK Unlimited for a free deck consultation and quote.",
       excerpt: "Choosing between composite and wood decking? Both have pros and cons for Pittsburgh's four-season climate. Here's a detailed comparison.",
-      image_id: "", published_at: "2024-12-01", status: "published", author: "Anthony Kowalski", category: "Outdoor", read_time: "7 min",
+      image_id: "", published_at: "2024-12-01", status: "published", author: "ABK Unlimited Team", category: "Outdoor", read_time: "7 min",
     },
     {
       id: "blog-5", title: "Planning a Home Addition: What You Need to Know", slug: "home-addition-planning",
       content: "A home addition is one of the most significant investments you can make. Here's what every Pittsburgh homeowner should consider before breaking ground.\n\n## Types of Home Additions\n\n### Room Addition (Ground Floor)\nExpand your home's footprint. Ideal when you have available lot space.\n- Average cost: $150-$300/sq ft\n- Timeline: 2-4 months\n\n### Second Story Addition\nBuild up when you can't build out. More complex but preserves yard space.\n- Average cost: $200-$400/sq ft\n- Timeline: 3-6 months\n\n### Sunroom/Four-Season Room\nEnjoy the outdoors year-round. Great for Pittsburgh's variable weather.\n- Average cost: $100-$250/sq ft\n- Timeline: 6-10 weeks\n\n## Key Planning Steps\n1. Check local zoning and setback requirements\n2. Determine if your lot and foundation can support the addition\n3. Match architectural style to existing home\n4. Plan for HVAC extension and electrical upgrades\n5. Get proper permits (ABK handles this)\n\nReady to add space to your Pittsburgh home? Contact ABK Unlimited for a free consultation.",
       excerpt: "A home addition is one of the most significant investments you can make. Here's what every Pittsburgh homeowner should consider before breaking ground.",
-      image_id: "", published_at: "2024-11-18", status: "published", author: "James Mitchell", category: "Additions", read_time: "6 min",
+      image_id: "", published_at: "2024-11-18", status: "published", author: "ABK Unlimited Team", category: "Additions", read_time: "6 min",
     },
     {
       id: "blog-6", title: "How to Choose the Right Flooring for Each Room", slug: "choosing-flooring",
       content: "The right flooring can transform a room. But with so many options, how do you choose? Here's our room-by-room guide for Pittsburgh homes.\n\n## Kitchen\nBest options: Tile, luxury vinyl plank (LVP), hardwood. Needs water resistance and durability.\n\n## Bathroom\nBest options: Porcelain tile, natural stone, vinyl. Must be waterproof.\n\n## Living Room\nBest options: Hardwood, engineered wood, LVP. Hardwood adds the most value.\n\n## Bedroom\nBest options: Hardwood, carpet, engineered wood. Carpet provides warmth and comfort.\n\n## Basement\nBest options: LVP, tile, epoxy. Must handle potential moisture. Never install hardwood in basements.\n\n## Price Ranges (Installed)\n- Carpet: $4-12/sq ft\n- Luxury Vinyl: $6-15/sq ft\n- Hardwood: $8-25/sq ft\n- Tile: $10-30/sq ft\n\nNeed help choosing? ABK Unlimited provides free flooring consultations for Pittsburgh homeowners.",
       excerpt: "The right flooring can transform a room. But with so many options, how do you choose? Here's our room-by-room guide for Pittsburgh homes.",
-      image_id: "", published_at: "2024-11-05", status: "published", author: "Maria Kowalski", category: "Flooring", read_time: "5 min",
+      image_id: "", published_at: "2024-11-05", status: "published", author: "ABK Unlimited Team", category: "Flooring", read_time: "5 min",
     },
   ],
 
   team: [
-    { id: "team-1", name: "Anthony B. Kowalski", role: "Founder & CEO", bio: "Third-generation craftsman with 25+ years in construction. Founded ABK Unlimited in 2005 with a mission to deliver honest, quality work at fair prices to Pittsburgh homeowners.", image_id: "" },
-    { id: "team-2", name: "Maria Kowalski", role: "Operations Director", bio: "Ensures every project runs smoothly from start to finish. Maria oversees scheduling, client communication, and quality control across all active projects.", image_id: "" },
-    { id: "team-3", name: "James Mitchell", role: "Lead Project Manager", bio: "15+ years managing complex residential renovations. James coordinates crews, manages timelines, and serves as the primary point of contact for clients during construction.", image_id: "" },
+    { id: "team-1", name: "Project Management", role: "Planning & Coordination", bio: "Dedicated project managers oversee every job from start to finish — coordinating schedules, managing budgets, and keeping you informed at every step.", image_id: "" },
+    { id: "team-2", name: "Skilled Trades", role: "Construction & Finishing", bio: "Our licensed craftsmen handle everything from framing and electrical to finish carpentry and tile work. No subcontractor roulette — you get our team, every time.", image_id: "" },
+    { id: "team-3", name: "Client Care", role: "Communication & Support", bio: "From your initial consultation through warranty support, our client care team ensures you have a seamless, stress-free experience.", image_id: "" },
   ],
 
   faqs: [
@@ -185,7 +185,7 @@ export const LOCAL_DATA: Record<string, Record<string, string>[]> = {
 
   seo: [
     { page_path: "/", title: "ABK Unlimited | Pittsburgh's Trusted General Contractor | Kitchen & Bath Remodeling", description: "Award-winning Pittsburgh general contractor specializing in kitchen remodeling, bathroom renovations, basement finishing & deck building. Licensed & insured. Free estimates. Call (412) 944-1683.", og_image_id: "" },
-    { page_path: "/about", title: "About ABK Unlimited | Pittsburgh's Trusted General Contractor Since 2005", description: "Learn about ABK Unlimited, a family-owned general contractor serving Pittsburgh with 18+ years of experience. PA licensed, insured, and committed to quality craftsmanship.", og_image_id: "" },
+    { page_path: "/about", title: "About ABK Unlimited | Pittsburgh General Contractor | Licensed & Insured", description: "ABK Unlimited is a family-owned general contractor serving Greater Pittsburgh. PA Licensed (HIC #PA163301), BBB A+ Rated, Best of Houzz 2025. Kitchen, bathroom, basement, and whole-home remodeling.", og_image_id: "" },
     { page_path: "/services", title: "Our Services | ABK Unlimited Pittsburgh General Contractor", description: "Comprehensive home remodeling services in Pittsburgh. Kitchen & bathroom remodeling, basement finishing, deck building, home additions, flooring, custom homes & commercial construction.", og_image_id: "" },
     { page_path: "/portfolio", title: "Portfolio | ABK Unlimited Pittsburgh General Contractor", description: "View our portfolio of completed projects. Kitchen remodels, bathroom renovations, basement finishing, decks & more.", og_image_id: "" },
     { page_path: "/testimonials", title: "Customer Reviews & Testimonials | ABK Unlimited Pittsburgh Contractor", description: "Read verified reviews from Pittsburgh homeowners. See why ABK Unlimited is rated 5 stars.", og_image_id: "" },

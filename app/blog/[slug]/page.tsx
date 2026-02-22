@@ -38,10 +38,10 @@ const blogPosts: Record<string, BlogPostData> = {
       "From smart appliances to natural stone finishes, discover the top kitchen design trends that Pittsburgh homeowners are embracing this year.",
     image: "/modern-white-kitchen-renovation-with-island-and-pe.jpg",
     category: "Kitchen",
-    author: "Anthony Kowalski",
-    authorImage: "/professional-headshot.png",
+    author: "ABK Unlimited Team",
+    authorImage: "/abk-logo.png",
     authorBio:
-      "Founder & CEO of ABK Unlimited with 20+ years of experience in home remodeling across Greater Pittsburgh.",
+      "The ABK Unlimited team is experienced in home remodeling across Greater Pittsburgh.",
     date: "January 15, 2025",
     readTime: "8 min read",
     content: `The kitchen remains the heart of the home, and 2025 is bringing exciting new trends that blend style with functionality. As Pittsburgh's trusted remodeling contractor, we're seeing these trends dominate our project requests this year.
@@ -79,10 +79,10 @@ Ready to start planning? Contact us for a free estimate and let's bring your dre
       "Not all bathroom upgrades are created equal. Learn which renovations deliver the highest return on investment and which are purely for enjoyment.",
     image: "/luxury-master-bathroom-with-walk-in-shower-and-fre.jpg",
     category: "Bathroom",
-    author: "Maria Kowalski",
-    authorImage: "/professional-woman-headshot.png",
+    author: "ABK Unlimited Team",
+    authorImage: "/abk-logo.png",
     authorBio:
-      "Director of Operations at ABK Unlimited, specializing in project management and client relations.",
+      "The ABK Unlimited team is experienced in home remodeling across Greater Pittsburgh.",
     date: "January 8, 2025",
     readTime: "6 min read",
     content: `When it comes to home renovations, bathroom remodels consistently rank among the highest-ROI projects you can undertake. But not every upgrade delivers the same return. Here's our data-driven breakdown.
@@ -120,10 +120,10 @@ Contact ABK Unlimited for a free bathroom remodel consultation. We'll help you p
       "Everything you need to know about transforming your Pittsburgh basement into usable living space, from moisture control to design ideas.",
     image: "/finished-basement-living-space.jpg",
     category: "Basement",
-    author: "James Mitchell",
-    authorImage: "/professional-man-headshot.png",
+    author: "ABK Unlimited Team",
+    authorImage: "/abk-logo.png",
     authorBio:
-      "Senior Project Manager at ABK Unlimited with 15 years of construction management experience.",
+      "The ABK Unlimited team is experienced in home remodeling across Greater Pittsburgh.",
     date: "December 20, 2024",
     readTime: "10 min read",
     content: `Pittsburgh basements present unique challenges and incredible opportunities. With the right approach, your unfinished basement can become the most popular room in your home. Here's everything you need to know.
@@ -173,10 +173,10 @@ Ready to transform your basement? Contact ABK Unlimited for a free assessment an
       "A comprehensive comparison of composite and wood decking materials, considering Pittsburgh's unique climate challenges.",
     image: "/custom-composite-deck-outdoor-living.jpg",
     category: "Outdoor",
-    author: "Anthony Kowalski",
-    authorImage: "/professional-headshot.png",
+    author: "ABK Unlimited Team",
+    authorImage: "/abk-logo.png",
     authorBio:
-      "Founder & CEO of ABK Unlimited with 20+ years of experience in home remodeling across Greater Pittsburgh.",
+      "The ABK Unlimited team is experienced in home remodeling across Greater Pittsburgh.",
     date: "December 12, 2024",
     readTime: "7 min read",
     content: `Choosing the right decking material is one of the most important decisions in your outdoor project. Pittsburgh's four-season climate with hot, humid summers and freezing, snowy winters puts unique demands on decking materials. Here's how composite and wood compare.
@@ -221,10 +221,10 @@ Contact ABK Unlimited for a free deck consultation and estimate. We'll help you 
       "From zoning permits to design considerations, this guide walks you through every step of planning a successful home addition.",
     image: "/home-addition-seamless-architecture.jpg",
     category: "Additions",
-    author: "James Mitchell",
-    authorImage: "/professional-man-headshot.png",
+    author: "ABK Unlimited Team",
+    authorImage: "/abk-logo.png",
     authorBio:
-      "Senior Project Manager at ABK Unlimited with 15 years of construction management experience.",
+      "The ABK Unlimited team is experienced in home remodeling across Greater Pittsburgh.",
     date: "November 28, 2024",
     readTime: "9 min read",
     content: `A home addition is one of the most significant investments you can make in your property. When done right, it adds valuable living space and increases your home's value. Here's your comprehensive planning guide.
@@ -278,10 +278,10 @@ Ready to expand your home? Contact us for a free consultation and detailed estim
       "Hardwood, LVP, tile, or carpet? Learn which flooring material works best for each room in your home.",
     image: "/hardwood-flooring-installation.png",
     category: "Flooring",
-    author: "Maria Kowalski",
-    authorImage: "/professional-woman-headshot.png",
+    author: "ABK Unlimited Team",
+    authorImage: "/abk-logo.png",
     authorBio:
-      "Director of Operations at ABK Unlimited, specializing in project management and client relations.",
+      "The ABK Unlimited team is experienced in home remodeling across Greater Pittsburgh.",
     date: "November 15, 2024",
     readTime: "6 min read",
     content: `Choosing flooring is one of the most impactful decisions in any renovation. The right flooring material depends on the room's function, your lifestyle, and your budget. Here's our room-by-room guide.

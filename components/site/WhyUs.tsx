@@ -71,8 +71,8 @@ export function WhyUs() {
           <div className="relative">
             <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/professional-contractor-team-working-on-home-renov.jpg"
-                alt="ABK Unlimited team working on a home renovation project"
+                src="/shadyside-pittsburgh-renovated-home.jpg"
+                alt="Beautiful renovated Shadyside-style home in Pittsburgh"
                 fill
                 className="object-cover"
               />
@@ -81,10 +81,10 @@ export function WhyUs() {
             <div className="hidden sm:block absolute -bottom-6 -left-6 bg-card p-4 sm:p-6 rounded-xl shadow-xl border border-border max-w-xs">
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-lg sm:text-xl">
-                  15+
+                  A+
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground text-sm sm:text-base">Years of Excellence</p>
+                  <p className="font-semibold text-foreground text-sm sm:text-base">BBB Rated</p>
                   <p className="text-xs sm:text-sm text-muted-foreground">Serving Pittsburgh</p>
                 </div>
               </div>

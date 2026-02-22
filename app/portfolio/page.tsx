@@ -9,7 +9,7 @@ import { ArrowRight, Phone, Star } from "lucide-react"
 export const metadata: Metadata = {
   title: "Portfolio | ABK Unlimited Pittsburgh Home Remodeling Projects",
   description:
-    "Browse 1,200+ completed projects by ABK Unlimited. Kitchen remodels, bathroom renovations, basement finishing, deck building, and more across Greater Pittsburgh.",
+    "Browse completed projects by ABK Unlimited. Kitchen remodels, bathroom renovations, basement finishing, deck building, and more across Greater Pittsburgh.",
   openGraph: {
     title: "Our Portfolio | ABK Unlimited",
     description:
@@ -30,7 +30,7 @@ const categories = [
 ]
 
 const stats = [
-  { value: "1,200+", label: "Projects Completed" },
+  { value: "Hundreds", label: "Projects Completed" },
   { value: "18+", label: "Years Experience" },
   { value: "98%", label: "Client Satisfaction" },
   { value: "5.0", label: "Google Rating", hasStars: true },
@@ -308,8 +308,8 @@ export default function PortfolioPage() {
               Your Project Could Be Next
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Ready to transform your home? Get a free estimate and join the
-              1,200+ homeowners who trust ABK Unlimited.
+              Ready to transform your home? Get a free estimate and see why
+              homeowners across Pittsburgh trust ABK Unlimited.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/free-estimate">

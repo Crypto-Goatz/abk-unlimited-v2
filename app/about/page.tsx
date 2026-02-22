@@ -13,16 +13,19 @@ import {
   Phone,
   ArrowRight,
   Star,
+  Hammer,
+  Home,
+  Heart,
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About ABK Unlimited | Pittsburgh General Contractor Since 2005",
+  title: "About ABK Unlimited | Pittsburgh General Contractor | Licensed & Insured",
   description:
-    "Learn about ABK Unlimited, Pittsburgh's trusted general contractor since 2005. Founded by Anthony B. Kowalski, a third-generation craftsman with 1,200+ completed projects.",
+    "ABK Unlimited is a family-owned general contracting company serving Greater Pittsburgh. PA Licensed (HIC #PA163301), BBB A+ Rated, and Best of Houzz 2025 winner. Kitchen, bathroom, basement, and whole-home remodeling.",
   openGraph: {
-    title: "About ABK Unlimited | Pittsburgh General Contractor Since 2005",
+    title: "About ABK Unlimited | Pittsburgh General Contractor",
     description:
-      "Third-generation craftsmanship. 1,200+ projects completed. Licensed, insured, and committed to building Pittsburgh's dreams since 2005.",
+      "Family-owned Pittsburgh contractor. PA Licensed, BBB A+ Rated, Best of Houzz 2025. Kitchen remodeling, bathroom renovations, basement finishing, decks, and more.",
     url: "https://abkunlimited.com/about",
     type: "website",
   },
@@ -31,21 +34,21 @@ export const metadata: Metadata = {
 const coreValues = [
   {
     icon: Shield,
-    title: "Integrity",
+    title: "Integrity First",
     description:
-      "We do what we say we'll do. Transparent pricing, honest timelines, and no surprises. Our reputation is built on trust.",
+      "We do what we say we'll do. Transparent pricing, honest timelines, and no surprises. Our reputation is built on trust — and we plan to keep it that way.",
   },
   {
     icon: Award,
-    title: "Quality",
+    title: "Uncompromising Quality",
     description:
-      "Every project meets the highest standards of craftsmanship. We use premium materials and proven techniques passed down three generations.",
+      "Every project meets the highest standards of craftsmanship. We use premium materials and proven techniques to deliver results that stand the test of time.",
   },
   {
     icon: Users,
     title: "Family Values",
     description:
-      "As a family-owned business, we treat every client like family. Your home is your most important investment, and we respect that.",
+      "As a family-owned business, we treat every client like family. Your home is your most important investment, and we respect that with every decision we make.",
   },
   {
     icon: Clock,
@@ -57,72 +60,56 @@ const coreValues = [
 
 const milestones = [
   {
-    year: "2005",
+    year: "2020",
     title: "ABK Unlimited Founded",
     description:
-      "Anthony B. Kowalski starts ABK Unlimited with a truck, a toolbox, and a vision to bring honest craftsmanship to Pittsburgh homeowners.",
+      "ABK Unlimited launches in Pittsburgh with a clear mission: deliver honest, high-quality home remodeling to Western PA families. Licensed and insured from day one.",
   },
   {
-    year: "2010",
-    title: "500 Projects Completed",
+    year: "2021",
+    title: "Rapid Growth Through Referrals",
     description:
-      "Reached our 500th project milestone. Expanded our team to 15 full-time craftsmen and moved into our first dedicated office space.",
+      "Word-of-mouth drives early growth as completed kitchen and bathroom projects earn 5-star reviews. Service area expands across Allegheny County.",
   },
   {
-    year: "2015",
-    title: "Commercial Division Launched",
+    year: "2023",
+    title: "BBB A+ Rating Earned",
     description:
-      "Expanded into commercial construction, taking on office buildouts, retail renovations, and multi-unit residential projects across Greater Pittsburgh.",
+      "Earns an A+ rating from the Better Business Bureau — the highest rating available. Becomes one of Pittsburgh's top-reviewed remodeling contractors on Houzz.",
   },
   {
-    year: "2020",
-    title: "1,000 Projects & Growing",
+    year: "2025",
+    title: "Best of Houzz 2025",
     description:
-      "Surpassed 1,000 completed projects. Earned BBB A+ rating and became one of Pittsburgh's most reviewed contractors on Google and Houzz.",
-  },
-  {
-    year: "2024",
-    title: "Best of Houzz & AI Innovation",
-    description:
-      "Won Best of Houzz 2025 award. Launched AI-powered design visualization tools to help homeowners plan their dream renovations.",
+      "Awarded Best of Houzz 2025, recognizing exceptional service and quality. Expands services to include home additions, commercial work, and full design-build projects.",
   },
 ]
 
 const credentials = [
   { label: "PA Licensed", detail: "HIC #PA163301" },
   { label: "Fully Insured", detail: "Liability & Workers' Comp" },
-  { label: "EPA Lead-Safe", detail: "Certified Renovator" },
-  { label: "OSHA Certified", detail: "Safety Trained" },
-  { label: "BBB A+ Rated", detail: "Accredited Business" },
-  { label: "Angi Certified", detail: "Top Rated Pro" },
+  { label: "BBB A+ Rated", detail: "Highest Rating" },
+  { label: "Best of Houzz", detail: "2025 Winner" },
+  { label: "5-Star Reviews", detail: "Across Platforms" },
+  { label: "BuildZoom 90", detail: "Top Contractor Score" },
 ]
 
 const stats = [
-  { value: "1,200+", label: "Projects Completed" },
-  { value: "98%", label: "Client Satisfaction" },
   { value: "A+", label: "BBB Rating" },
-  { value: "5.0", label: "Google Rating", icon: true },
+  { value: "5.0", label: "Houzz Rating", icon: true },
+  { value: "50+", label: "Communities Served" },
+  { value: "5", label: "Years Strong" },
 ]
 
-const teamMembers = [
-  {
-    name: "Anthony Kowalski",
-    role: "CEO & Founder",
-    image: "/professional-headshot.png",
-    bio: "Third-generation craftsman with 20+ years of experience. Anthony founded ABK Unlimited in 2005 with a commitment to honest, quality workmanship that has driven the company's growth ever since.",
-  },
-  {
-    name: "Maria Kowalski",
-    role: "Director of Operations",
-    image: "/professional-woman-headshot.png",
-    bio: "Maria oversees day-to-day operations, client relations, and project scheduling. Her attention to detail and dedication to customer satisfaction keep every project running smoothly.",
-  },
-  {
-    name: "James Mitchell",
-    role: "Senior Project Manager",
-    image: "/professional-man-headshot.png",
-    bio: "With 15 years in construction management, James leads our project teams with precision and expertise. He ensures every build meets our exacting quality standards.",
-  },
+const services = [
+  { icon: Home, name: "Kitchen Remodeling" },
+  { icon: Home, name: "Bathroom Renovations" },
+  { icon: Hammer, name: "Basement Finishing" },
+  { icon: Home, name: "Deck Building" },
+  { icon: Home, name: "Home Additions" },
+  { icon: Hammer, name: "Flooring Installation" },
+  { icon: Hammer, name: "General Contracting" },
+  { icon: Heart, name: "Interior Design" },
 ]
 
 export default function AboutPage() {
@@ -139,12 +126,12 @@ export default function AboutPage() {
                 About Us
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Building Pittsburgh&apos;s Dreams Since 2005
+                Pittsburgh&apos;s Trusted Home Remodeling Partner
               </h1>
               <p className="text-xl text-white/80 leading-relaxed">
-                Three generations of craftsmanship. One unwavering commitment to
-                quality. Over 1,200 projects completed for families just like
-                yours.
+                Family-owned. Locally operated. PA Licensed &amp; Insured.
+                We&apos;ve earned a BBB A+ rating and Best of Houzz 2025 by doing
+                one thing right: treating every home like it&apos;s our own.
               </p>
             </div>
           </div>
@@ -159,33 +146,34 @@ export default function AboutPage() {
                   Our Story
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  A Legacy of Craftsmanship
+                  Built on Hard Work &amp; Honest Values
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    ABK Unlimited was founded in 2005 by{" "}
-                    <strong className="text-foreground">
-                      Anthony B. Kowalski
-                    </strong>
-                    , a third-generation craftsman who grew up learning the
-                    trades from his father and grandfather on job sites across
-                    Pittsburgh.
+                    ABK Unlimited was founded in{" "}
+                    <strong className="text-foreground">2020</strong> right here
+                    in Pittsburgh, PA. What started as a small, hands-on contracting
+                    operation quickly grew through word-of-mouth referrals and a
+                    simple commitment: show up on time, do exceptional work, and
+                    treat every client like family.
                   </p>
                   <p>
-                    What started as a one-man operation with a pickup truck and a
-                    passion for quality work has grown into one of Pittsburgh's
-                    most trusted general contracting firms. Today, ABK Unlimited
-                    has completed over{" "}
+                    As a family-owned business, we take personal pride in every
+                    project — from kitchen renovations in Mt. Lebanon to basement
+                    finishes in Moon Township. We don&apos;t cut corners, we don&apos;t
+                    disappear mid-project, and we don&apos;t pad invoices. That approach
+                    has earned us a{" "}
                     <strong className="text-foreground">
-                      1,200 residential and commercial projects
-                    </strong>{" "}
-                    across Greater Pittsburgh.
+                      BBB A+ rating, a 5.0 on Houzz, and the Best of Houzz 2025 award
+                    </strong>.
                   </p>
                   <p>
-                    Our success comes from a simple philosophy: treat every
-                    home like it's your own. We combine old-world craftsmanship
-                    with modern techniques and materials to deliver results that
-                    stand the test of time.
+                    Today, ABK Unlimited serves over 50 communities across
+                    Greater Pittsburgh with a full range of residential and
+                    commercial remodeling services. From kitchens and bathrooms
+                    to whole-home additions and commercial buildouts, we bring
+                    the same dedication to quality and client care that built
+                    our reputation from day one.
                   </p>
                 </div>
               </div>
@@ -193,18 +181,48 @@ export default function AboutPage() {
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
                     src="/professional-contractor-team-portrait-in-front-of-.jpg"
-                    alt="ABK Unlimited team on a job site"
+                    alt="ABK Unlimited team on a job site in Pittsburgh"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-2xl shadow-xl">
-                  <div className="text-3xl font-bold">20+</div>
+                  <div className="text-3xl font-bold">A+</div>
                   <div className="text-sm text-primary-foreground/80">
-                    Years Experience
+                    BBB Rating
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Services We Offer */}
+        <section className="py-16 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+                What We Do
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Full-Service Home Remodeling
+              </h2>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                One contractor for your entire project — from design through final walkthrough.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {services.map((svc) => (
+                <div
+                  key={svc.name}
+                  className="bg-card rounded-xl p-5 text-center shadow-sm border border-border hover:shadow-md transition-shadow"
+                >
+                  <svc.icon className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <div className="font-semibold text-foreground text-sm">
+                    {svc.name}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -253,11 +271,10 @@ export default function AboutPage() {
                 Our Journey
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Milestones Along the Way
+                Growing With Pittsburgh
               </h2>
             </div>
             <div className="relative">
-              {/* Vertical line */}
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block" />
               <div className="space-y-12">
                 {milestones.map((milestone, index) => (
@@ -265,7 +282,6 @@ export default function AboutPage() {
                     key={milestone.year}
                     className="relative flex gap-8 items-start"
                   >
-                    {/* Year badge */}
                     <div className="relative z-10 flex-shrink-0">
                       <div
                         className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-sm shadow-lg ${
@@ -277,7 +293,6 @@ export default function AboutPage() {
                         {milestone.year}
                       </div>
                     </div>
-                    {/* Content */}
                     <div className="bg-card rounded-2xl p-6 shadow-sm border border-border flex-1">
                       <h3 className="text-xl font-bold text-foreground mb-2">
                         {milestone.title}
@@ -301,11 +316,11 @@ export default function AboutPage() {
                 Credentials
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Licensed, Insured & Certified
+                Licensed, Insured &amp; Recognized
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                We maintain the highest professional standards and credentials
-                in the industry.
+                We maintain the highest professional standards and have earned
+                recognition across every major platform.
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -350,7 +365,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Team */}
+        {/* Team — Generic, no fake names */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="text-center mb-16">
@@ -358,40 +373,48 @@ export default function AboutPage() {
                 Our Team
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Meet the People Behind ABK
+                Skilled Professionals, Real Results
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                Our leadership team brings decades of combined experience to
-                every project.
+                Our team includes experienced project managers, licensed
+                tradespeople, and dedicated support staff — all committed to
+                delivering exceptional results on every project.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
-              {teamMembers.map((member) => (
-                <div
-                  key={member.name}
-                  className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border hover:shadow-lg transition-shadow"
-                >
-                  <div className="relative h-72">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary font-medium text-sm mb-3">
-                      {member.role}
-                    </p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border text-center">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Users className="h-10 w-10 text-primary" />
                 </div>
-              ))}
+                <h3 className="text-xl font-bold text-foreground mb-2">Project Management</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Dedicated project managers oversee every job from start to finish —
+                  coordinating schedules, managing budgets, and keeping you informed
+                  at every step.
+                </p>
+              </div>
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border text-center">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Hammer className="h-10 w-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Skilled Trades</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Our licensed craftsmen handle everything from framing and electrical
+                  to finish carpentry and tile work. No subcontractor roulette — you
+                  get our team, every time.
+                </p>
+              </div>
+              <div className="bg-card rounded-2xl p-8 shadow-sm border border-border text-center">
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Heart className="h-10 w-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Client Care</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  From your initial consultation through warranty support, our
+                  client care team ensures you have a seamless, stress-free
+                  experience from start to finish.
+                </p>
+              </div>
             </div>
           </div>
         </section>

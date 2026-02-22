@@ -87,7 +87,7 @@ function createSiteConfigTab(ss) {
     ["price_range", "$10,000 - $500,000"],
     ["rating", "5.0"],
     ["review_count", "200+"],
-    ["projects_completed", "1200+"],
+    ["projects_completed", "Hundreds"],
     ["years_experience", "18+"],
     ["meta_title", "ABK Unlimited | Pittsburgh's Trusted General Contractor | Kitchen & Bath Remodeling"],
     ["meta_description", "Award-winning Pittsburgh general contractor specializing in kitchen remodeling, bathroom renovations, basement finishing & deck building. Licensed & insured. Free estimates. Call (412) 944-1683."],
@@ -438,7 +438,7 @@ function createBlogTab(ss) {
       "",
       "2025-01-05",
       "published",
-      "Anthony Kowalski",
+      "ABK Unlimited Team",
       "Kitchen",
       "6 min"
     ],
@@ -451,7 +451,7 @@ function createBlogTab(ss) {
       "",
       "2024-12-28",
       "published",
-      "Maria Kowalski",
+      "ABK Unlimited Team",
       "Bathroom",
       "5 min"
     ],
@@ -464,7 +464,7 @@ function createBlogTab(ss) {
       "",
       "2024-12-15",
       "published",
-      "James Mitchell",
+      "ABK Unlimited Team",
       "Basement",
       "8 min"
     ],
@@ -477,7 +477,7 @@ function createBlogTab(ss) {
       "",
       "2024-12-01",
       "published",
-      "Anthony Kowalski",
+      "ABK Unlimited Team",
       "Outdoor",
       "7 min"
     ],
@@ -490,7 +490,7 @@ function createBlogTab(ss) {
       "",
       "2024-11-18",
       "published",
-      "James Mitchell",
+      "ABK Unlimited Team",
       "Additions",
       "6 min"
     ],
@@ -503,7 +503,7 @@ function createBlogTab(ss) {
       "",
       "2024-11-05",
       "published",
-      "Maria Kowalski",
+      "ABK Unlimited Team",
       "Flooring",
       "5 min"
     ],
@@ -533,23 +533,23 @@ function createTeamTab(ss) {
     headers,
     [
       "team-1",
-      "Anthony B. Kowalski",
-      "Founder & CEO",
-      "Third-generation craftsman with 25+ years in construction. Founded ABK Unlimited in 2005 with a mission to deliver honest, quality work at fair prices to Pittsburgh homeowners.",
+      "ABK Unlimited Team",
+      "Leadership",
+      "The ABK Unlimited team is experienced in home remodeling across Greater Pittsburgh, delivering honest, quality work at fair prices to Pittsburgh homeowners.",
       ""
     ],
     [
       "team-2",
-      "Maria Kowalski",
-      "Operations Director",
-      "Ensures every project runs smoothly from start to finish. Maria oversees scheduling, client communication, and quality control across all active projects.",
+      "ABK Unlimited Team",
+      "Operations",
+      "Ensures every project runs smoothly from start to finish. The operations team oversees scheduling, client communication, and quality control across all active projects.",
       ""
     ],
     [
       "team-3",
-      "James Mitchell",
-      "Lead Project Manager",
-      "15+ years managing complex residential renovations. James coordinates crews, manages timelines, and serves as the primary point of contact for clients during construction.",
+      "ABK Unlimited Team",
+      "Project Management",
+      "Experienced in managing complex residential renovations. The project management team coordinates crews, manages timelines, and serves as the primary point of contact for clients during construction.",
       ""
     ],
   ];
