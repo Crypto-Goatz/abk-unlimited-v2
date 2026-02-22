@@ -150,6 +150,26 @@
   color: #1d4ed8;
 }
 
+/* Hero blueprint sketch animations */
+@keyframes sketch-draw {
+  from { stroke-dashoffset: 600; }
+  to { stroke-dashoffset: 0; }
+}
+
+.animate-sketch {
+  animation: sketch-draw 3s ease-out forwards;
+}
+
+.animate-sketch-delayed {
+  animation: sketch-draw 4s ease-out 0.8s forwards;
+  stroke-dashoffset: 600;
+}
+
+.animate-sketch-slow {
+  animation: sketch-draw 5s ease-out 1.5s forwards;
+  stroke-dashoffset: 600;
+}
+
 /* Custom animations for visualizer */
 @keyframes fade-in {
   from {
