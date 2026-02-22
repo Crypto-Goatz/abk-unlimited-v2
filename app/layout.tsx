@@ -44,7 +44,7 @@ export default function RootLayout({
               description:
                 "Full-service residential and commercial general contractor serving Greater Pittsburgh. Kitchen remodeling, bathroom renovations, basement finishing, deck building, and custom home construction.",
               url: "https://abkunlimited.com",
-              logo: "https://abkunlimited.com/logo.png",
+              logo: "https://abkunlimited.com/abk-logo.png",
               telephone: "+1-412-944-1683",
               email: "abk.unlimited@gmail.com",
               address: {

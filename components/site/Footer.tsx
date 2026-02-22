@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Facebook, Phone, Mail, MapPin } from "lucide-react"
 
 const footerLinks = {
@@ -32,14 +33,14 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-primary-foreground font-bold shadow-md">
-                ABK
-              </div>
-              <div>
-                <span className="text-xl font-bold text-secondary-foreground">ABK Unlimited</span>
-                <p className="text-xs text-secondary-foreground/60">General Contractor</p>
-              </div>
+            <div className="mb-6">
+              <Image
+                src="/abk-logo.png"
+                alt="ABK Unlimited"
+                width={200}
+                height={54}
+                className="h-12 w-auto"
+              />
             </div>
 
             <p className="text-secondary-foreground/70 max-w-xs mb-8 leading-relaxed">

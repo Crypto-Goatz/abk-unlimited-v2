@@ -114,18 +114,15 @@ export function Header() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm shadow-md">
-            ABK
-          </div>
-          <div className="flex flex-col">
-            <span className={`text-lg font-bold leading-tight ${scrolled ? "text-foreground" : "text-white"}`}>
-              ABK Unlimited
-            </span>
-            <span className={`text-xs ${scrolled ? "text-muted-foreground" : "text-white/70"}`}>
-              General Contractor
-            </span>
-          </div>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/abk-logo.png"
+            alt="ABK Unlimited"
+            width={180}
+            height={48}
+            className={`h-10 w-auto transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
