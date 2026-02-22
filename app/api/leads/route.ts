@@ -11,6 +11,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 import { LeadIntelligence } from '@/lib/skills/lead-intelligence'
 import type { IncomingLead } from '@/lib/skills/lead-intelligence'
+import { appendSheetRow } from '@/lib/google/sheets'
+import { recordAnalyticsEvent } from '@/lib/analytics-loop'
 
 // ============================================================================
 // INBOUND WEBHOOK — fires on every lead submission
@@ -147,6 +149,72 @@ export async function POST(request: NextRequest) {
       tasksCreated: result.actions.tasksCreated.length,
       errors: result.errors,
     })
+
+    // Extract attribution data (prefixed with _attr_ from frontend)
+    const attrKeys = Object.keys(body).filter((k) => k.startsWith('_attr_'))
+    const attr: Record<string, string> = {}
+    for (const k of attrKeys) {
+      attr[k.replace('_attr_', '')] = body[k]
+    }
+
+    // Sync to Google Sheets customer database (non-blocking)
+    const [firstName, ...restName] = (validatedData.name || '').split(' ')
+    const lastName = restName.join(' ')
+    const customerId = `cust_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
+
+    appendSheetRow('customers', {
+      id: customerId,
+      crm_contact_id: result.lead.crmContactId || '',
+      first_name: firstName,
+      last_name: lastName,
+      email: validatedData.email,
+      phone: validatedData.phone || '',
+      address: validatedData.address || '',
+      city: validatedData.city || '',
+      state: validatedData.state || '',
+      zip: validatedData.zipCode || '',
+      source: `Website - ${validatedData.source || 'Lead Form'}`,
+      lead_score: String(result.lead.score.total),
+      lead_temperature: result.lead.score.temperature,
+      tags: [`source:${validatedData.source || 'website'}`, ...(validatedData.services || []).map((s: string) => `service:${s}`)].join(','),
+      services_interested: (validatedData.services || []).join(','),
+      estimated_value: validatedData.budget || '0',
+      status: 'new',
+      notes: validatedData.message || '',
+      gclid: attr.gclid || '',
+      fbclid: attr.fbclid || '',
+      utm_source: validatedData.utmSource || attr.utm_source || '',
+      utm_medium: validatedData.utmMedium || attr.utm_medium || '',
+      utm_campaign: validatedData.utmCampaign || attr.utm_campaign || '',
+      ga_client_id: attr.ga_client_id || '',
+      first_visit_page: validatedData.landingPage || attr.landing_page || '',
+      conversion_page: attr.conversion_page || '',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      last_synced: new Date().toISOString(),
+    }).catch((err) => console.error('Sheets sync error:', err))
+
+    // Record analytics event (non-blocking)
+    recordAnalyticsEvent({
+      customerId,
+      crmContactId: result.lead.crmContactId,
+      eventName: 'lead_form_submission',
+      eventCategory: 'conversion',
+      attribution: {
+        gclid: attr.gclid,
+        fbclid: attr.fbclid,
+        utmSource: validatedData.utmSource || attr.utm_source,
+        utmMedium: validatedData.utmMedium || attr.utm_medium,
+        utmCampaign: validatedData.utmCampaign || attr.utm_campaign,
+        gaClientId: attr.ga_client_id,
+        sessionId: attr.session_id,
+        referrer: attr.referrer,
+        landingPage: validatedData.landingPage || attr.landing_page,
+        deviceType: attr.device_type,
+      },
+      pagePath: attr.conversion_page || '/free-estimate',
+      conversionValue: validatedData.budget ? 1000 : 500,
+    }).catch(() => {})
 
     // Return appropriate response based on temperature
     const messages = {

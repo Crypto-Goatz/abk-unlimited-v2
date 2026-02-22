@@ -40,17 +40,29 @@ export default function ContactPage() {
     setError(null)
 
     const formData = new FormData(e.currentTarget)
+
+    // Get attribution data from session tracker
+    let attribution: Record<string, string> = {}
+    try {
+      const stored = sessionStorage.getItem("abk_attribution")
+      if (stored) attribution = JSON.parse(stored)
+      // Record conversion page
+      attribution.conversion_page = window.location.pathname
+      sessionStorage.setItem("abk_attribution", JSON.stringify(attribution))
+    } catch {}
+
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      service: formData.get("subject"),
+      subject: formData.get("subject"),
       message: formData.get("message"),
-      source: "contact",
+      page_source: "/contact",
+      ...attribution,
     }
 
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

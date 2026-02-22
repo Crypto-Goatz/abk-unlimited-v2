@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input, Textarea } from "@/components/ui/input";
 import { Send, CheckCircle } from "lucide-react";
+import { getAttribution, setConversionPage } from "./AttributionTracker";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -15,19 +16,25 @@ export function ContactForm() {
     setErrorMsg("");
 
     const form = e.currentTarget;
+    const firstName = (form.elements.namedItem("firstName") as HTMLInputElement).value;
+    const lastName = (form.elements.namedItem("lastName") as HTMLInputElement).value;
+    const attribution = getAttribution();
+    setConversionPage(window.location.pathname);
+
     const data = {
-      firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
-      lastName: (form.elements.namedItem("lastName") as HTMLInputElement).value,
+      name: `${firstName} ${lastName}`.trim(),
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      page_source: window.location.pathname,
+      ...attribution,
     };
 
     try {
-      const res = await fetch("/api/content", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "contact_submission", ...data }),
+        body: JSON.stringify(data),
       });
 
       if (!res.ok) throw new Error("Failed to submit");

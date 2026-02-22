@@ -36,11 +36,28 @@ export function EstimateForm() {
     setError(null)
 
     const formData = new FormData(e.currentTarget)
+
+    // Get attribution data from session tracker
+    let attribution: Record<string, string> = {}
+    try {
+      const stored = sessionStorage.getItem("abk_attribution")
+      if (stored) attribution = JSON.parse(stored)
+      attribution.conversion_page = window.location.pathname
+      sessionStorage.setItem("abk_attribution", JSON.stringify(attribution))
+    } catch {}
+
     const data = {
       name: `${formData.get("firstName")} ${formData.get("lastName")}`,
       email: formData.get("email"),
       phone: formData.get("phone"),
+      address: formData.get("address"),
+      city: formData.get("city"),
+      zipCode: formData.get("zip"),
+      state: "PA",
+      services: selectedServices,
       service: selectedServices.join(", "),
+      projectTimeline: formData.get("timeline"),
+      budget: formData.get("budget"),
       message: `
 Address: ${formData.get("address")}, ${formData.get("city")}, PA ${formData.get("zip")}
 Timeline: ${formData.get("timeline")}
@@ -48,6 +65,14 @@ Budget: ${formData.get("budget")}
 Description: ${formData.get("description")}
       `.trim(),
       source: "free-estimate",
+      landingPage: attribution.landing_page || "",
+      utmSource: attribution.utm_source || "",
+      utmMedium: attribution.utm_medium || "",
+      utmCampaign: attribution.utm_campaign || "",
+      // Pass full attribution for Sheets sync
+      ...Object.fromEntries(
+        Object.entries(attribution).map(([k, v]) => [`_attr_${k}`, v])
+      ),
     }
 
     try {
