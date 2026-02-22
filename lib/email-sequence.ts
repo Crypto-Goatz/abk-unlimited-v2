@@ -48,17 +48,49 @@ interface SequenceRow {
   updated_at: string
 }
 
-// ─── SendGrid ────────────────────────────────────────────────────────
+// ─── CRM Email (logs to contact conversation timeline) ───────────────
 
-async function sendEmail(to: string, subject: string, html: string): Promise<boolean> {
+const CRM_API_BASE = 'https://services.leadconnectorhq.com'
+const CRM_VERSION = '2021-07-28'
+
+async function sendViaCRM(contactId: string, subject: string, html: string): Promise<boolean> {
+  const apiKey = process.env.CRM_API_KEY
+  if (!apiKey || !contactId) return false
+
+  try {
+    const res = await fetch(`${CRM_API_BASE}/conversations/messages`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        Version: CRM_VERSION,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        type: 'Email',
+        contactId,
+        subject,
+        html,
+        emailFrom: process.env.CRM_FROM_EMAIL || 'info@abkunlimited.com',
+      }),
+    })
+
+    if (res.ok) {
+      console.log(`[email-sequence] CRM email sent: "${subject}" to contact ${contactId}`)
+    }
+    return res.ok
+  } catch {
+    return false
+  }
+}
+
+// ─── SendGrid (actual delivery) ──────────────────────────────────────
+
+async function sendViaSendGrid(to: string, subject: string, html: string): Promise<boolean> {
   const apiKey = process.env.SENDGRID_API_KEY
   const fromEmail = process.env.SENDGRID_FROM_EMAIL || 'info@abkunlimited.com'
   const fromName = process.env.SENDGRID_FROM_NAME || 'ABK Unlimited'
 
-  if (!apiKey) {
-    console.log(`[email-sequence] SendGrid not configured — would send "${subject}" to ${to}`)
-    return true // Don't block the sequence in dev
-  }
+  if (!apiKey) return false
 
   try {
     const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
@@ -85,12 +117,32 @@ async function sendEmail(to: string, subject: string, html: string): Promise<boo
       return false
     }
 
-    console.log(`[email-sequence] Sent "${subject}" to ${to}`)
     return true
   } catch (err) {
-    console.error('[email-sequence] Send failed:', err)
+    console.error('[email-sequence] SendGrid failed:', err)
     return false
   }
+}
+
+/**
+ * Send email via best available channel.
+ * Priority: CRM (logs to contact timeline) > SendGrid > log-only fallback
+ */
+async function sendEmail(to: string, subject: string, html: string, crmContactId?: string): Promise<boolean> {
+  // Try CRM first (shows in contact conversation timeline)
+  const crmSent = await sendViaCRM(crmContactId || '', subject, html)
+
+  // Also send via SendGrid for reliable delivery + tracking
+  const sgSent = await sendViaSendGrid(to, subject, html)
+
+  const sent = crmSent || sgSent
+  if (sent) {
+    console.log(`[email-sequence] Sent "${subject}" to ${to} (CRM: ${crmSent}, SG: ${sgSent})`)
+  } else {
+    console.log(`[email-sequence] No email provider configured — would send "${subject}" to ${to}`)
+  }
+
+  return true // Don't block sequence even if delivery fails
 }
 
 // ─── Start a new sequence ────────────────────────────────────────────
@@ -125,7 +177,7 @@ export async function startSequence(contact: SequenceContact): Promise<{
     sequenceId,
   })
 
-  const sent = await sendEmail(contact.email, subject, html)
+  const sent = await sendEmail(contact.email, subject, html, contact.crmContactId)
 
   // Schedule future emails
   const step2Time = new Date(now.getTime() + SEQUENCE_SCHEDULE[1].delayMinutes * 60000)
@@ -216,7 +268,7 @@ export async function processScheduledEmails(): Promise<{
       sequenceId: seq.id,
     })
 
-    const sent = await sendEmail(seq.email, subject, html)
+    const sent = await sendEmail(seq.email, subject, html, seq.crm_contact_id)
 
     if (sent) {
       result.sent++
